@@ -3,16 +3,16 @@ let vm =  new Vue({
     data : {
         count : 3,
         selectKey : '',
-        playerImg : './images/question.jpg',
+        playerImg : 'images/question.jpg',
         playerHrt: 3,
         cpuKey : '',
-        cpuImg : './images/question.jpg',
+        cpuImg : 'images/question.jpg',
         cpuHrt : 3,
         thinking: '생각중...',
         waitLog: false,
         fightLog :[],
-        playerHrtImg : ['./images/heart.jpg', './images/heart.jpg', './images/heart.jpg'],
-        cpuHrtImg : ['./images/heart.jpg', './images/heart.jpg', './images/heart.jpg'],
+        playerHrtImg : ['images/heart.jpg', 'images/heart.jpg', 'images/heart.jpg'],
+        cpuHrtImg : ['images/heart.jpg', 'images/heart.jpg', 'images/heart.jpg'],
     },
     methods:{
         wating:function(){
@@ -88,13 +88,13 @@ let vm =  new Vue({
     },
     watch:{
         selectKey: function(changeKey){
-            this.playerImg = `./images/${changeKey}.jpg`;
+            this.playerImg = `images/${changeKey}.jpg`;
         },
         cpuKey: function(changeKey){
             if(changeKey != ''){
-                this.cpuImg = `./images/${changeKey}.jpg`;
+                this.cpuImg = `images/${changeKey}.jpg`;
             }else{
-                this.cpuImg = './images/question.jpg';
+                this.cpuImg = 'images/question.jpg';
             }
         },
         count:function(newCount){
@@ -103,10 +103,10 @@ let vm =  new Vue({
             }
         },
         playerHrt:function(newHrt){
-            this.playerHrtImg[newHrt] = './images/broken-heart.jpg';
+            this.playerHrtImg[newHrt] = 'images/broken-heart.jpg';
         },
         cpuHrt:function(newHrt){
-            this.cpuHrtImg[newHrt] = './images/broken-heart.jpg';
+            this.cpuHrtImg[newHrt] = 'images/broken-heart.jpg';
         }
     },
 
