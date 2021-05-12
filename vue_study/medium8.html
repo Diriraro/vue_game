@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Sample</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{count}}</h1>
+      <p>{{text}}</p>
+      <button @click="count --">카운트 감소</button>
+
+      <h1>{{count2}}</h1>
+      <h2>computed : {{calculated}}</h2>
+      <h2>watch : {{watchedCount}}</h2>
+      <button @click="count2 --">카운트2 감소</button>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          count: 3,
+          text: "변경 전입니다",
+          count2: 3,
+          watchedCount: 9,
+        },
+        computed: {
+          calculated: function () {
+            return this.count2 * 3;
+          },
+        },
+        watch: {
+          count: function (newVal, oldVal) {
+            this.text = `${oldVal}에서 ${newVal}로 변경되었습니다.`;
+          },
+          count2: function (newVal) {
+            this.watchedCount = newVal * 3;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

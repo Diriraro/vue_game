@@ -1,0 +1,32 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Sample</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <a :href="link">링크</a>
+      <h1 v-once>{{title}}</h1>
+      <p>{{sayHello()}}</p>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          link:
+            "https://medium.com/@hozacho/%EB%A7%A8%EB%95%85%EC%97%90-vuejs-003-vuejs-directive-v-bind-a4844574e6ae",
+          title: "을지로3가역으로",
+        },
+        methods: {
+          sayHello: function () {
+            this.title = "으아어어어";
+            return this.title;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

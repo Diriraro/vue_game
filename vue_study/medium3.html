@@ -1,0 +1,46 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Sample</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{number}}</p>
+      <button @click="rolldice">주사위굴려보기</button>
+
+      <p>{{count}}</p>
+      <div @mousemove="addCount()">
+        마우스무브
+        <span @mousemove.stop> stop </span>
+        다시
+      </div>
+
+      <input @keyup.enter="login()" placeholder="insert id" />
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          number: 0,
+          count: 0,
+        },
+        methods: {
+          rolldice: function () {
+            let N = Math.floor(Math.random() * 6) + 1;
+            this.number = N;
+          },
+          addCount: function () {
+            this.count++;
+          },
+          login: function () {
+            alert("you login");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

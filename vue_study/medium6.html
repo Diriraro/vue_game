@@ -1,0 +1,40 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Sample</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>먹고싶은 고기</h1>
+      <ul>
+        <li v-for="(item, i) in list">{{item}}({{i}})</li>
+      </ul>
+      <h1>여행 리스트</h1>
+      <ul>
+        <li v-for="item in travelList" :key="item.name">
+          위치 : {{item.name}} / 거리 : {{item.distance}}
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          list: ["소갈비", "부챗살", "채끗살", "티본", "새우살", "고기ㅣㅣ"],
+          travelList: [
+            { name: "강릉", distance: "차로 3시간" },
+            { name: "부산", distance: "차로 5시간" },
+            { name: "춘천", distance: "차로 2시간" },
+            { name: "대만", distance: "비행기로 3시간" },
+            { name: "필리핀", distance: "비행기로 5시간" },
+            { name: "스페인", distance: "비행기로 17시간" },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>
