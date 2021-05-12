@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rock Scissor Paper</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/foundation.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="row">
+        <div class="small-5 columns text-center">
+          <img :src="playerImg" alt="" class="text-center" />
+          <h1 class="text-center"><strong>YOU</strong></h1>
+        </div>
+        <div class="small-2 columns text-center">
+          <h1 style="font-size: 100px"><strong>{{count}}</strong></h1>
+        </div>
+        <div class="small-5 columns text-center">
+          <img :src="cpuImg" alt="" class="text-center" />
+          <h1 class="text-center"><strong>Computer</strong></h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-6 columns text-center">
+          <div class="battle-wrap">
+            <img :src="playerHrtImg[0]" class="heart" alt="" />
+            <img :src="playerHrtImg[1]" class="heart" alt="" />
+            <img :src="playerHrtImg[2]" class="heart" alt="" />
+          </div>
+        </div>
+        <div class="small-6 columns text-center">
+          <div class="battle-wrap">
+            <img :src="cpuHrtImg[0]" class="heart" alt="" />
+            <img :src="cpuHrtImg[1]" class="heart" alt="" />
+            <img :src="cpuHrtImg[2]" class="heart" alt="" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-6 columns text-center">
+          <div class="row">
+            <div class="small-8 small-offset-2 columns text-center">
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  name="key"
+                  v-model="selectKey"
+                  value="scissor"
+                />
+                가위
+              </label>
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  name="key"
+                  v-model="selectKey"
+                  value="rock"
+                />
+                바위
+              </label>
+              <label class="radio-label">
+                <input
+                  type="radio"
+                  name="key"
+                  v-model="selectKey"
+                  value="paper"
+                />
+                보
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="small-12 columns">
+              <div class="text-center">
+                <button class="start-btn" @click="wating" v-if="!waitLog">
+                  선택 완료!
+                </button>
+              </div>
+              <div class="loading" v-if="waitLog">기다리는중...</div>
+            </div>
+          </div>
+        </div>
+        <div class="small-6 columns text-center">
+          <p>{{thinking}}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small-12 columns log">
+          <ul>
+            <li v-for="item in fightLog">{{item}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
