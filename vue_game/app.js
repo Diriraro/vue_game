@@ -3,10 +3,10 @@ let vm =  new Vue({
     data : {
         count : 3,
         selectKey : '',
-        playerImg : 'images/question.jpg',
+        playerImg : './images/question.jpg',
         playerHrt: 3,
         cpuKey : '',
-        cpuImg : 'images/question.jpg',
+        cpuImg : './images/question.jpg',
         cpuHrt : 3,
         thinking: '생각중...',
         waitLog: false,
